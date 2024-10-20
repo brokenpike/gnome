@@ -8,10 +8,16 @@
   
   home.packages = with pkgs; [
     cowsay
+    stable.vim
+    stable.chromium
+    zeroad
+    vscode
+    htop
+    btop
   ];
   
   programs.fish.enable = true; 
-  
+  programs.firefox.enable = true;
   programs.git = {
     enable = true;
     userName = "brokenpike";

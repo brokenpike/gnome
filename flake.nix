@@ -38,6 +38,7 @@
           ./configuration.nix 
           home-manager.nixosModules.home-manager
            {
+            # enables use of stable overlay in home-manger
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.scott = import ./home.nix;

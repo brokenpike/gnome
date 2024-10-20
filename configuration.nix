@@ -73,14 +73,15 @@
     description = "scott";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-    #  thunderbird
-    zeroad 
-    stable.chromium
+    # in home.nix
+    #zeroad 
+    #stable.chromium
    ];
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  # in home.nix
+  #programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -92,7 +93,8 @@
     wget
     git
     curl
-    vscode
+    # in home.nix
+    #vscode
     
   ];
 
