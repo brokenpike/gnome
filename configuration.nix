@@ -75,6 +75,7 @@
     packages = with pkgs; [
     #  thunderbird
     zeroad 
+    stable.chromium
    ];
   };
 
@@ -92,6 +93,7 @@
     git
     curl
     vscode
+    
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
