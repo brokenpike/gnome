@@ -5,7 +5,18 @@
   # paths it should manage.
   home.username = "scott";
   home.homeDirectory = "/home/scott";
-
+  
+  home.packages = with pkgs; [
+    cowsay
+  ];
+  
+  programs.fish.enable = true; 
+  
+  programs.git = {
+    enable = true;
+    userName = "brokenpike";
+    userEmail = "brokenpike@garmr.org";
+  };
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
