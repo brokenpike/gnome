@@ -6,7 +6,7 @@
   home.username = "scott";
   home.homeDirectory = "/home/scott";
   
-  home.packages = with pkgs; [
+  home.packages = with pkgs; [dis
     cowsay
     stable.vim
     stable.chromium
@@ -14,6 +14,8 @@
     vscode
     htop
     btop
+    direnv
+    tesseract
   ];
   
   programs.fish.enable = true; 

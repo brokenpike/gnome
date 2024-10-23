@@ -34,6 +34,9 @@
   
   # Service fwupd
   services.fwupd.enable = true;
+  # command to enable fingerprint reader
+  # sudo fprintd-enroll $USER
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -95,6 +98,7 @@
     wget
     git
     curl
+    devenv
     # in home.nix
     #vscode
     
