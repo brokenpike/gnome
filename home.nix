@@ -6,7 +6,7 @@
   home.username = "scott";
   home.homeDirectory = "/home/scott";
   
-  home.packages = with pkgs; [dis
+  home.packages = with pkgs; [
     cowsay
     stable.vim
     stable.chromium
