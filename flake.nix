@@ -3,7 +3,7 @@
   # inputs are an attribute set
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
-    nixpkgs-stable.url = github:NixOS/nixpkgs/nixos-24.05;
+    nixpkgs-stable.url = github:NixOS/nixpkgs/nixos-24.11;
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     hyprland = {
       url = "github:hyprwm/Hyprland";

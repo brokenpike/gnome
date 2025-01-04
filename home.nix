@@ -10,7 +10,7 @@
     cowsay
     stable.vim
     stable.chromium
-    zeroad
+    #zeroad
     vscode
     htop
     btop
