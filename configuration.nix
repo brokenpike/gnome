@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      #<nixpkgs/nixos/modules/virtualisation/qemu-vm.nix>
     ];
 
   # Bootloader.
@@ -15,6 +16,14 @@
   boot.loader.efi.canTouchEfiVariables = true;
   # Enable nix flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  #nix.extraOptions = ''
+  #      extra-substituters = https://devenv.cachix.org
+  #      extra-trusted-public-keys = devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=
+  #  '';
+    nix.extraOptions = ''
+        trusted-users = root scott
+    '';
 
   networking.hostName = "framework"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -32,6 +41,11 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   
+
+  
+  # Service  spice and virualization
+  services.spice-vdagentd.enable = true;
+  
   # Service fwupd
   services.fwupd.enable = true;
   # command to enable fingerprint reader
@@ -39,7 +53,14 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
+  
+  virtualisation.libvirtd.enable = true; 
+  #virtualisation.qemu.options = [
+   # "-vga qxl"
+    #"-spice port=5924,disable-ticketing=on"
+    #"-device virtio-serial -chardev spicevmc,id=vdagent,debug=0,name=vdagent"
+    #"-device virtserialport,chardev=vdagent,name=com.redhat.spice.0"
+  #];
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
@@ -99,6 +120,9 @@
     git
     curl
     devenv
+    quickemu
+    spice-gtk
+    gnome-boxes
     # in home.nix
     #vscode
     
