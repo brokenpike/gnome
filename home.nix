@@ -10,12 +10,14 @@
     cowsay
     stable.vim
     stable.chromium
-    #zeroad
+    stable.zeroad
     vscode
     htop
     btop
     direnv
     tesseract
+    inkscape-with-extensions
+    gimp
   ];
   
   programs.fish.enable = true; 
