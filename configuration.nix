@@ -2,7 +2,8 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs,... }:
+{ #config, 
+pkgs, inputs,... }:
 
 {
   imports =
@@ -98,11 +99,11 @@
     isNormalUser = true;
     description = "scott";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    # in home.nix
-    #zeroad 
-    #stable.chromium
-   ];
+    #packages = with pkgs; [
+      # in home.nix
+      #zeroad 
+      #stable.chromium
+    #];
   };
 
   # Install firefox.
