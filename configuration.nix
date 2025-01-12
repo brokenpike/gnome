@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs,... }:
 
 {
   imports =
@@ -16,7 +16,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   # Enable nix flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
+  nix.nixPath =[ "nixpkgs=${inputs.nixpkgs}"];   
   #nix.extraOptions = ''
   #      extra-substituters = https://devenv.cachix.org
   #      extra-trusted-public-keys = devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=
@@ -123,6 +123,7 @@
     #quickemu
     spice-gtk
     gnome-boxes
+    nixd
     # in home.nix
     #vscode
     

@@ -11,17 +11,26 @@
     };
     home-manager = {
       url = github:nix-community/home-manager;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+      inputs.nixpkgs.follows = "nix
+          };
+    nvf.url = "github:notashelf/nvf";
 
   };
   #outputs is a function of one argument that takes an attribute set of all the realized inputs
-  outputs = { self,nixos-hardware, nixpkgs,nixpkgs-stable,home-manager,...}@inputs: {
+  outputs = { self,nixos-hardware, nixpkgs,nixpkgs-stable,home-manager,nvf,...}@inputs: {
     # replace 'joes-desktop' with your networking.hostname here.
+            packages."x86_64-linux".default = 
+          (nvf.lib.neovimConfiguration {
+            pkgs = nixpkgs.legacyPackages."x86_64-linux";
+            modules = [ ./nvf-configuration.nix];
+          }).neovim;
+    
     nixosConfigurations = {
       framework = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
+
+
         
         modules = [ 
             {
@@ -38,6 +47,7 @@
             }
           ./configuration.nix 
           nixos-hardware.nixosModules.framework-13-7040-amd
+          #nvf.nixosModules.default
           home-manager.nixosModules.home-manager
            {
             # enables use of stable overlay in home-manger
