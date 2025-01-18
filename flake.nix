@@ -3,9 +3,16 @@
   # inputs are an attribute set
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    determinate = {
+      url = "https://flakehub.com/f/DeterminateSystems/determinate/0.1";
+      inputs.nixpkgs.follows = "nixpkgs";
+      };
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nvf.url = "github:notashelf/nvf";
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,7 +25,7 @@
 
   };
   #outputs is a function of one argument that takes an attribute set of all the realized inputs
-  outputs = { self, nixpkgs,nixpkgs-stable,home-manager,...}@inputs: {
+  outputs = { self, nixpkgs,nixpkgs-stable,home-manager,determinate,...}@inputs: {
     # replace 'joes-desktop' with your networking.hostname here.
     packages."x86_64-linux".default = 
           (inputs.nvf.lib.neovimConfiguration {
@@ -31,6 +38,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };    
         modules = [ 
+          determinate.nixosModules.default
             {
               nixpkgs.overlays = [
                 (final: prev: {

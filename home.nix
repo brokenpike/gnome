@@ -1,5 +1,5 @@
 { #config, 
-pkgs, ... }:
+pkgs,inputs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the
@@ -14,11 +14,13 @@ pkgs, ... }:
     stable.zeroad
     vscode
     htop
+    #inputs.nixpkgs-stable.legacyPackages."x86_64-linux".btop
     btop
     direnv
     tesseract
     inkscape-with-extensions
     gimp
+
   ];
   
   programs.fish.enable = true; 
