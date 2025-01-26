@@ -1,4 +1,4 @@
-{ #config, 
+{ #config,
 pkgs,inputs, ... }:
 
 {
@@ -6,7 +6,7 @@ pkgs,inputs, ... }:
   # paths it should manage.
   home.username = "scott";
   home.homeDirectory = "/home/scott";
-  
+
   home.packages = with pkgs; [
     cowsay
     stable.vim
@@ -19,14 +19,16 @@ pkgs,inputs, ... }:
     direnv
     tesseract
     inkscape-with-extensions
+    lazygit
+    tmux
     gimp
     helix
     wl-clipboard-rs
     zed-editor
     zellij
   ];
-  
-  programs.fish.enable = true; 
+
+  programs.fish.enable = true;
   programs.firefox.enable = true;
   programs.git = {
     enable = true;
