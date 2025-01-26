@@ -20,7 +20,10 @@ pkgs,inputs, ... }:
     tesseract
     inkscape-with-extensions
     gimp
-
+    helix
+    wl-clipboard-rs
+    zed-editor
+    zellij
   ];
   
   programs.fish.enable = true; 
@@ -42,4 +45,4 @@ pkgs,inputs, ... }:
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-}}}}}}}}}}}}
+}
