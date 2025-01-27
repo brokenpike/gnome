@@ -8,21 +8,23 @@ pkgs,inputs, ... }:
   home.homeDirectory = "/home/scott";
 
   home.packages = with pkgs; [
-    cowsay
-    stable.vim
-    stable.chromium
-    stable.zeroad
-    vscode
-    htop
     #inputs.nixpkgs-stable.legacyPackages."x86_64-linux".btop
+    alacritty
     btop
+    cowsay
     direnv
-    tesseract
-    inkscape-with-extensions
-    lazygit
-    tmux
+    fish
     gimp
     helix
+    htop
+    inkscape-with-extensions
+    lazygit
+    stable.chromium
+    stable.vim
+    stable.zeroad
+    tesseract
+    tmux
+    vscode
     wl-clipboard-rs
     zed-editor
     zellij
