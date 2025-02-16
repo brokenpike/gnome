@@ -9,13 +9,20 @@ pkgs,inputs, ... }:
 
   home.packages = with pkgs; [
     #inputs.nixpkgs-stable.legacyPackages."x86_64-linux".btop
+    libreoffice-qt
+    hunspell
+    hunspellDicts.uk_UA
+    hunspellDicts.th_TH
+    hunspellDicts.nb-no
+    languagetool
     alacritty
+    signal-desktop
+    signald
     btop
     cowsay
     direnv
     fish
     gimp
-    helix
     htop
     inkscape-with-extensions
     lazygit
@@ -29,6 +36,29 @@ pkgs,inputs, ... }:
     zed-editor
     zellij
   ];
+
+programs.helix = {
+  enable = true;
+  settings = {
+    theme = "autumn_night_transparent";
+    editor.cursor-shape = {
+      normal = "block";
+      insert = "bar";
+      select = "underline";
+    };
+  };
+  languages.language = [{
+    name = "nix";
+    auto-format = true;
+    formatter.command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
+  }];
+  themes = {
+    autumn_night_transparent = {
+      "inherits" = "autumn_night";
+      "ui.background" = { };
+    };
+  };
+};
 
   programs.fish.enable = true;
   programs.firefox.enable = true;
