@@ -1,5 +1,9 @@
-{ #config,
-pkgs,inputs, ... }:
+# config,
+{
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   # Home Manager needs a bit of information about you and the
@@ -16,7 +20,7 @@ pkgs,inputs, ... }:
     hunspellDicts.nb-no
     languagetool
     alacritty
-    signal-desktop
+    signal-desktop-bin
     signald
     btop
     cowsay
@@ -32,33 +36,37 @@ pkgs,inputs, ... }:
     tesseract
     tmux
     vscode
-    wl-clipboard-rs
+    # wl-clipboard-rs did not enable the hx system clipboard
+    wl-clipboard
     zed-editor
     zellij
   ];
 
-programs.helix = {
-  enable = true;
-  settings = {
-    theme = "autumn_night_transparent";
-    editor.cursor-shape = {
-      normal = "block";
-      insert = "bar";
-      select = "underline";
+  programs.helix = {
+    enable = true;
+    settings = {
+      #theme = "autumn_night_transparent";
+      theme = "everforest_light";
+      editor.cursor-shape = {
+        normal = "block";
+        insert = "bar";
+        select = "underline";
+      };
+    };
+    languages.language = [
+      {
+        name = "nix";
+        auto-format = true;
+        formatter.command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
+      }
+    ];
+    themes = {
+      autumn_night_transparent = {
+        "inherits" = "autumn_night";
+        "ui.background" = { };
+      };
     };
   };
-  languages.language = [{
-    name = "nix";
-    auto-format = true;
-    formatter.command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
-  }];
-  themes = {
-    autumn_night_transparent = {
-      "inherits" = "autumn_night";
-      "ui.background" = { };
-    };
-  };
-};
 
   programs.fish.enable = true;
   programs.firefox.enable = true;
