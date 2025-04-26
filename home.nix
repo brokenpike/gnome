@@ -21,7 +21,7 @@
     languagetool
     alacritty
     signal-desktop-bin
-    signald
+    #signald
     btop
     cowsay
     direnv
