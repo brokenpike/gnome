@@ -16,6 +16,7 @@
     #<nixpkgs/nixos/modules/virtualisation/qemu-vm.nix>
   ];
 
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -32,6 +33,12 @@
   nix.extraOptions = ''
     trusted-users = root scott
   '';
+
+  nix.gc = {
+    automatic = true;
+    randomizedDelaySec = "14m";
+    options = "--delete-older-than 10d";
+  };
 
   networking.hostName = "framework"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -69,8 +76,8 @@
   #"-device virtserialport,chardev=vdagent,name=com.redhat.spice.0"
   #];
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
