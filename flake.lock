@@ -48,16 +48,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1748104036,
-        "narHash": "sha256-UehFVXGRCcPfuEpU8fUAlVx1qUJsQGDuOrc7k4weEt4=",
-        "rev": "a14a2706b8003574a0ed2c7b273c53aaa26c94b9",
-        "revCount": 239,
+        "lastModified": 1748060044,
+        "narHash": "sha256-wusmQ7ckk9061PAYla08aucQovObhAHUZn9nDS632nI=",
+        "rev": "071ce9a58e7172055349bb5e1fe5899d198cc382",
+        "revCount": 237,
         "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/DeterminateSystems/determinate/0.1.239%2Brev-a14a2706b8003574a0ed2c7b273c53aaa26c94b9/01970321-3a4b-792b-9ea4-871e9f590040/source.tar.gz"
+        "url": "https://api.flakehub.com/f/pinned/DeterminateSystems/determinate/3.6.1/01970082-f815-7d4c-a05e-edb8b0cc65a4/source.tar.gz"
       },
       "original": {
         "type": "tarball",
-        "url": "https://flakehub.com/f/DeterminateSystems/determinate/0.1"
+        "url": "https://flakehub.com/f/DeterminateSystems/determinate/%2A"
       }
     },
     "determinate-nixd-aarch64-darwin": {

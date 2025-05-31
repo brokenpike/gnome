@@ -40,6 +40,7 @@
     wl-clipboard
     zed-editor
     zellij
+    nix-output-monitor
   ];
 
   programs.helix = {
