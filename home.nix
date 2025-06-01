@@ -41,6 +41,7 @@
     zed-editor
     zellij
     nix-output-monitor
+    tilix
   ];
 
   programs.helix = {
