@@ -10,40 +10,40 @@
   # paths it should manage.
   home.username = "scott";
   home.homeDirectory = "/home/scott";
-
+  # use select  "| sort " to make alphabetical
   home.packages = with pkgs; [
     #inputs.nixpkgs-stable.legacyPackages."x86_64-linux".btop
-    libreoffice-qt
-    hunspell
-    hunspellDicts.uk_UA
-    hunspellDicts.th_TH
-    hunspellDicts.nb-no
-    languagetool
     alacritty
-    signal-desktop-bin
-    #signald
     btop
     cowsay
     direnv
     fish
     gimp
+    git-credential-manager
+    grc
     htop
+    hunspell
+    hunspellDicts.nb-no
+    hunspellDicts.th_TH
+    hunspellDicts.uk_UA
     inkscape-with-extensions
+    languagetool
     lazygit
+    libreoffice-qt
+    nix-output-monitor
+    #signald
+    signal-desktop-bin
     stable.chromium
     stable.vim
     stable.zeroad
     tesseract
+    tilix
     tmux
     vscode
-    # wl-clipboard-rs did not enable the hx system clipboard
-    wl-clipboard
+    #wl-clipboard-rs# did not enable the hx system clipboard
+    wl-clipboard # space + "y" yanks to system clipboard
     zed-editor
     zellij
-    nix-output-monitor
-    tilix
-    git-credential-manager
-    grc
   ];
 
   programs.helix = {
@@ -80,7 +80,10 @@
     '';
     plugins = [
       # Enable a plugin (here grc for colorized command output) from nixpkgs
-      { name = "grc"; src = pkgs.fishPlugins.grc.src; }
+      {
+        name = "grc";
+        src = pkgs.fishPlugins.grc.src;
+      }
       # Manually packaging and enable a plugin
       {
         name = "z";
