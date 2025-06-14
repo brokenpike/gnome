@@ -42,6 +42,8 @@
     zellij
     nix-output-monitor
     tilix
+    git-credential-manager
+    grc
   ];
 
   programs.helix = {
@@ -70,12 +72,35 @@
     };
   };
 
-  programs.fish.enable = true;
+  #programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      set fish_greeting # Disable greeting
+    '';
+    plugins = [
+      # Enable a plugin (here grc for colorized command output) from nixpkgs
+      { name = "grc"; src = pkgs.fishPlugins.grc.src; }
+      # Manually packaging and enable a plugin
+      {
+        name = "z";
+        src = pkgs.fetchFromGitHub {
+          owner = "jethrokuan";
+          repo = "z";
+          rev = "e0e1b9dfdba362f8ab1ae8c1afc7ccf62b89f7eb";
+          sha256 = "0dbnir6jbwjpjalz14snzd3cgdysgcs3raznsijd6savad3qhijc";
+        };
+      }
+    ];
+  };
+
   programs.firefox.enable = true;
   programs.git = {
     enable = true;
     userName = "brokenpike";
     userEmail = "brokenpike@garmr.org";
+    extraConfig.credential.helper = "manager";
+    extraConfig.credential.credentialStore = "cache";
   };
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
