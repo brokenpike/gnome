@@ -109,6 +109,7 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.scott = {
+    shell = pkgs.fish;
     isNormalUser = true;
     description = "scott";
     extraGroups = [
@@ -121,7 +122,7 @@
     #stable.chromium
     #];
   };
-
+  programs.fish.enable = true;
   # Install firefox.
   # in home.nix
   #programs.firefox.enable = true;

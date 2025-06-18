@@ -10,6 +10,7 @@
   # paths it should manage.
   home.username = "scott";
   home.homeDirectory = "/home/scott";
+  #home.sessionVariables.EDITOR = "hx";
   # use select  "| sort " to make alphabetical
   home.packages = with pkgs; [
     #inputs.nixpkgs-stable.legacyPackages."x86_64-linux".btop
@@ -45,9 +46,22 @@
     zed-editor
     zellij
   ];
-
+  programs.yazi = {
+    enable = true;
+    settings = {
+      opener = {
+        edit = [
+          {
+            block = true;
+            run = "hx \"$@\"";
+          }
+        ];
+      };
+    };
+  };
   programs.helix = {
     enable = true;
+    defaultEditor = true;
     settings = {
       #theme = "autumn_night_transparent";
       theme = "everforest_light";
@@ -74,6 +88,7 @@
 
   #programs.fish.enable = true;
   programs.fish = {
+    #defaultShell = true;
     enable = true;
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
