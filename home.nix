@@ -19,7 +19,7 @@
     cowsay
     direnv
     fish
-    gimp
+    #gimp
     git-credential-manager
     grc
     htop
@@ -63,8 +63,8 @@
     enable = true;
     defaultEditor = true;
     settings = {
-      #theme = "autumn_night_transparent";
-      theme = "everforest_light";
+      theme = "autumn_night_transparent";
+      #theme = "everforest_light";
       editor.cursor-shape = {
         normal = "block";
         insert = "bar";
