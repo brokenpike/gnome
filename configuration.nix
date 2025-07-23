@@ -16,7 +16,6 @@
     #<nixpkgs/nixos/modules/virtualisation/qemu-vm.nix>
   ];
 
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -76,7 +75,7 @@
   #"-device virtserialport,chardev=vdagent,name=com.redhat.spice.0"
   #];
   # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
+  #  services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
@@ -140,9 +139,9 @@
     devenv
     #quickemu
     spice-gtk
-    gnome-boxes
-    nixd
-    gnomeExtensions.paperwm
+    #    gnome-boxes
+    #    nixd
+    #    gnomeExtensions.paperwm
     trayscale
     # in home.nix
     #vscode
@@ -175,5 +174,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-  system.rebuild.enableNg =true;
+  system.rebuild.enableNg = true;
 }
