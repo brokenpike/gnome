@@ -698,15 +698,15 @@
       "locked": {
         "lastModified": 1753236515,
         "narHash": "sha256-ZH3PTbjo8JjoSeQl+nIWLySd97/D5L9NNho4V78F5ro=",
-        "owner": "henrysipp",
-        "repo": "omarchy-nix",
+        "ref": "refs/heads/omarchy",
         "rev": "51193c0973a761835dd036dc1848a779ef1b474a",
-        "type": "github"
+        "revCount": 42,
+        "type": "git",
+        "url": "file:///home/scott/Documents/omarchy-nix"
       },
       "original": {
-        "owner": "henrysipp",
-        "repo": "omarchy-nix",
-        "type": "github"
+        "type": "git",
+        "url": "file:///home/scott/Documents/omarchy-nix"
       }
     },
     "pre-commit-hooks": {
