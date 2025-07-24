@@ -14,37 +14,37 @@
   # use select  "| sort " to make alphabetical
   home.packages = with pkgs; [
     #inputs.nixpkgs-stable.legacyPackages."x86_64-linux".btop
-    alacritty
-    btop
-    cowsay
-    direnv
-    fish
+    #alacritty
+    #btop
+    #cowsay
+    #direnv
+    #fish
     #gimp
     git-credential-manager
     grc
-    htop
+    #htop
     hunspell
     hunspellDicts.nb-no
     hunspellDicts.th_TH
     hunspellDicts.uk_UA
-    inkscape-with-extensions
+    #inkscape-with-extensions
     languagetool
     lazygit
-    libreoffice-qt
+    #libreoffice-qt
     nix-output-monitor
     #signald
-    signal-desktop-bin
-    stable.chromium
-    stable.vim
-    stable.zeroad
-    tesseract
+    #signal-desktop-bin
+    #stable.chromium
+    #stable.vim
+    #stable.zeroad
+    #tesseract
     tilix
-    tmux
-    vscode
+    #tmux
+    #vscode
     #wl-clipboard-rs# did not enable the hx system clipboard
     wl-clipboard # space + "y" yanks to system clipboard
-    zed-editor
-    zellij
+    #zed-editor
+    #zellij
   ];
   programs.yazi = {
     enable = true;
