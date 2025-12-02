@@ -117,10 +117,10 @@
   programs.firefox.enable = true;
   programs.git = {
     enable = true;
-    userName = "brokenpike";
-    userEmail = "brokenpike@garmr.org";
-    extraConfig.credential.helper = "manager";
-    extraConfig.credential.credentialStore = "cache";
+    settings.user.name = "brokenpike";
+    settings.user.email = "brokenpike@garmr.org";
+    settings.credential.helper = "manager";
+    settings.credential.credentialStore = "cache";
   };
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
