@@ -15,6 +15,7 @@
   home.packages = with pkgs; [
     #inputs.nixpkgs-stable.legacyPackages."x86_64-linux".btop
     alacritty
+    brave
     btop
     cowsay
     direnv
@@ -45,6 +46,7 @@
     wl-clipboard # space + "y" yanks to system clipboard
     zed-editor
     zellij
+    wineWowPackages.staging
   ];
   programs.yazi = {
     enable = true;
