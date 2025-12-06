@@ -13,9 +13,9 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./vm.nix
     #<nixpkgs/nixos/modules/virtualisation/qemu-vm.nix>
   ];
-
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -57,9 +57,6 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # Service  spice and virualization
-  services.spice-vdagentd.enable = true;
-
   # Service fwupd
   services.fwupd.enable = true;
   # command to enable fingerprint reader
@@ -68,13 +65,6 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  virtualisation.libvirtd.enable = true;
-  #virtualisation.qemu.options = [
-  # "-vga qxl"
-  #"-spice port=5924,disable-ticketing=on"
-  #"-device virtio-serial -chardev spicevmc,id=vdagent,debug=0,name=vdagent"
-  #"-device virtserialport,chardev=vdagent,name=com.redhat.spice.0"
-  #];
   # Enable the GNOME Desktop Environment.
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
@@ -115,6 +105,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "libvirtd"
     ];
     #packages = with pkgs; [
     # in home.nix
@@ -138,14 +129,10 @@
     git
     curl
     devenv
-    #quickemu
-    spice-gtk
     gnome-boxes
     nixd
     gnomeExtensions.paperwm
     trayscale
-    # in home.nix
-    #vscode
 
   ];
 
@@ -175,5 +162,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-  system.rebuild.enableNg =true;
+  system.rebuild.enableNg = true;
 }
