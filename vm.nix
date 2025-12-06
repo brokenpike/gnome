@@ -11,14 +11,15 @@
 
   # Install necessary packages
   environment.systemPackages = with pkgs; [
-    virt-manager
-    virt-viewer
+    adwaita-icon-theme
+    quickemu
     spice
     spice-gtk
     spice-protocol
     virtio-win
+    virt-manager
+    virt-viewer
     win-spice
-    adwaita-icon-theme
   ];
 
   # Manage the virtualisation services
