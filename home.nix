@@ -50,6 +50,21 @@
   ];
   programs.yazi = {
     enable = true;
+    # flavors = {
+    #   catppuccin-mocha = pkgs.fetchFromGitHub {
+    #     owner = "yazi-rs";
+    #     repo = "flavors";
+    #     rev = "main";
+    #     sha256 = "sha256-9hw6+yDI1KMl0e33ZMnFlitS9eE/dG5qW8b+E7k5Oks=";
+    #     sparseCheckout = [ "catppuccin-mocha.yazi" ];
+    #   };
+    # };
+    # theme = {
+    #   flavor = {
+    #     dark = "dracula";
+    #     light = "gruvbox";
+    #   };
+    # };
     settings = {
       opener = {
         edit = [
@@ -65,8 +80,8 @@
     enable = true;
     defaultEditor = true;
     settings = {
-      theme = "autumn_night_transparent";
-      #theme = "everforest_light";
+      #theme = "autumn_night_transparent";
+      theme = "ao";
       editor.cursor-shape = {
         normal = "block";
         insert = "bar";
