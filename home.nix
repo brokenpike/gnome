@@ -18,6 +18,7 @@
     brave
     btop
     cowsay
+    deadnix
     direnv
     fish
     #gimp

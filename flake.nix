@@ -6,7 +6,7 @@
     determinate = {
       url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
       inputs.nixpkgs.follows = "nixpkgs";
-      };
+    };
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nvf = {
@@ -21,28 +21,36 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
 
   };
   #outputs is a function of one argument that takes an attribute set of all the realized inputs
-  outputs = { self, nixpkgs,nixpkgs-stable,home-manager,determinate,...}@inputs: {
-    # replace 'joes-desktop' with your networking.hostname here.
-    packages."x86_64-linux".default = 
-          (inputs.nvf.lib.neovimConfiguration {
-            pkgs = nixpkgs.legacyPackages."x86_64-linux";
-            modules = [ ./nvf-configuration.nix];
-          }).neovim;
-    
-    nixosConfigurations = {
-      framework = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };    
-        modules = [ 
-          determinate.nixosModules.default
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-stable,
+      home-manager,
+      determinate,
+      ...
+    }@inputs:
+    {
+      # replace 'joes-desktop' with your networking.hostname here.
+      # packages."x86_64-linux".default =
+      #       (inputs.nvf.lib.neovimConfiguration {
+      #         pkgs = nixpkgs.legacyPackages."x86_64-linux";
+      #         modules = [ ./nvf-configuration.nix];
+      #       }).neovim;
+
+      nixosConfigurations = {
+        framework = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            determinate.nixosModules.default
             {
               nixpkgs.overlays = [
                 (final: prev: {
-                  stable = nixpkgs-stable.legacyPackages.${prev.system};
+                  stable = nixpkgs-stable.legacyPackages.${prev.stdenv.hostPlatform.system};
                   # use this variant if unfree packages are needed:
                   #stable = import nixpkgs-stable {
                   #   inherit ${prev.system};
@@ -51,21 +59,21 @@
                 })
               ];
             }
-          ./configuration.nix 
-          inputs.nixos-hardware.nixosModules.framework-13-7040-amd
-          #nvf.nixosModules.default
-          home-manager.nixosModules.home-manager
-           {
-            # enables use of stable overlay in home-manger
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.scott = import ./home.nix;
+            ./configuration.nix
+            inputs.nixos-hardware.nixosModules.framework-13-7040-amd
+            #nvf.nixosModules.default
+            home-manager.nixosModules.home-manager
+            {
+              # enables use of stable overlay in home-manger
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.scott = import ./home.nix;
 
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
-           }
-        ];
+              # Optionally, use home-manager.extraSpecialArgs to pass
+              # arguments to home.nix
+            }
+          ];
+        };
       };
-   };
-  };
+    };
 }
