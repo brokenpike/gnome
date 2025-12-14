@@ -10,7 +10,7 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     omarchy-nix = {
-      url = "github:henrysipp/omarchy-nix";
+      url = "github:brokenpike/omarchy-nix";
       #url = "git+file:///home/scott/Documents/omarchy-nix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
@@ -49,7 +49,7 @@
             {
               nixpkgs.overlays = [
                 (final: prev: {
-                  stable = nixpkgs-stable.legacyPackages.${prev.system};
+                  stable = nixpkgs-stable.legacyPackages.${prev.stdenv.hostPlatform.system};
                   # use this variant if unfree packages are needed:
                   #stable = import nixpkgs-stable {
                   #   inherit ${prev.system};
