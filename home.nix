@@ -130,12 +130,13 @@
     ];
   };
 
-  #  programs.firefox = {
-  #    enable = true;
-  # preferences = {
-  #   "widget.gtk.libadwaita-colors.enabled" = false;
-  # };
-  # };
+  programs.firefox = {
+    enable = true;
+    profiles.default.settings = {
+      "widget.gtk.libadwaita-colors.enabled" = false;
+      #"browser.theme.native-theme" = false;
+    };
+  };
   programs.git = {
     enable = true;
     settings.user.name = "brokenpike";

@@ -114,11 +114,11 @@
     #packages = with pkgs; [
     #];
   };
-  programs.firefox.enable = true;
-  programs.firefox.preferences = {
-    # disable libadwaita theming for Firefox
-    "widget.gtk.libadwaita-colors.enabled" = false;
-  };
+  # programs.firefox.enable = true;
+  # programs.firefox.preferences = {
+  #   # disable libadwaita theming for Firefox
+  #   "widget.gtk.libadwaita-colors.enabled" = false;
+  # };
   programs.fish.enable = true;
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
