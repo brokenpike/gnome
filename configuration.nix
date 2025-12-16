@@ -66,10 +66,20 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
+  # services.displayManager.gdm.enable = true;#
+  # services.desktopManager.gnome.enable = true;
 
-  # Configure keymap in X11
+  # Enable the COSMIC login manager
+  services.displayManager.cosmic-greeter.enable = true;
+
+  # Enable the COSMIC desktop environment
+  services.desktopManager.cosmic.enable = true;
+
+  services.system76-scheduler.enable = true;
+  # affects clipboard behaviour
+  #environment.sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;
+  # Configure keymap in X11i
+  #
   services.xserver.xkb = {
     layout = "us";
     variant = "altgr-intl";
@@ -103,6 +113,11 @@
     ];
     #packages = with pkgs; [
     #];
+  };
+  programs.firefox.enable = true;
+  programs.firefox.preferences = {
+    # disable libadwaita theming for Firefox
+    "widget.gtk.libadwaita-colors.enabled" = false;
   };
   programs.fish.enable = true;
   # Allow unfree packages
