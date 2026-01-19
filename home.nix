@@ -33,6 +33,7 @@
     languagetool
     lazygit
     libreoffice-qt
+    miro
     nix-output-monitor
     #signald
     signal-desktop-bin

@@ -86,8 +86,19 @@
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      cups-filters
+      cups-browsed
+    ];
+  };
 
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -110,6 +121,9 @@
       "networkmanager"
       "wheel"
       "libvirtd"
+      "lp"
+      "lpadmin"
+      "scanner"
     ];
     #packages = with pkgs; [
     #];
@@ -132,6 +146,7 @@
     #gnome-boxes
     #gnomeExtensions.paperwm
     nixd
+    nixfmt
     trayscale
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
