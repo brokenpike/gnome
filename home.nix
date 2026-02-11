@@ -20,6 +20,7 @@
     cowsay
     deadnix
     direnv
+    evince
     fish
     #gimp
     git-credential-manager
