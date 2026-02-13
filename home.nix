@@ -49,7 +49,7 @@
     wl-clipboard # space + "y" yanks to system clipboard
     zed-editor
     zellij
-    wineWowPackages.staging
+    wineWow64Packages.staging
   ];
   programs.yazi = {
     enable = true;
