@@ -33,7 +33,7 @@
     inkscape-with-extensions
     languagetool
     lazygit
-    libreoffice-qt
+    libreoffice-fresh
     miro
     microsoft-edge
     nix-output-monitor
@@ -70,6 +70,7 @@
     #     light = "gruvbox";
     #   };
     # };
+    shellWrapperName = "y";
     settings = {
       opener = {
         edit = [
