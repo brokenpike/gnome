@@ -61,6 +61,8 @@
   services.fwupd.enable = true;
   # command to enable fingerprint reader
   # sudo fprintd-enroll $USER
+  # enable samba for quickemu
+  services.samba.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;

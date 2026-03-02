@@ -35,8 +35,10 @@
     lazygit
     libreoffice-qt
     miro
+    microsoft-edge
     nix-output-monitor
     #signald
+    obsidian
     signal-desktop-bin
     stable.chromium
     stable.vim
