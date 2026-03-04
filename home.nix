@@ -39,7 +39,7 @@
     nix-output-monitor
     #signald
     obsidian
-    signal-desktop-bin
+    signal-desktop
     stable.chromium
     stable.vim
     stable.zeroad
@@ -49,8 +49,8 @@
     vscode
     #wl-clipboard-rs# did not enable the hx system clipboard
     wl-clipboard # space + "y" yanks to system clipboard
-    zed-editor
-    zellij
+    #    zed-editor
+    #    zellij
     wineWow64Packages.staging
   ];
   programs.yazi = {
