@@ -46,6 +46,7 @@
     tesseract
     tilix
     tmux
+    vivaldi
     vscode
     #wl-clipboard-rs# did not enable the hx system clipboard
     wl-clipboard # space + "y" yanks to system clipboard
