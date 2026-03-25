@@ -149,6 +149,7 @@
     settings.user.email = "brokenpike@garmr.org";
     settings.credential.helper = "manager";
     settings.credential.credentialStore = "cache";
+
   };
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
