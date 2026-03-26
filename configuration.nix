@@ -68,16 +68,16 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
+  #services.displayManager.gdm.enable = true;
+  #services.desktopManager.gnome.enable = true;
 
   # Enable the COSMIC login manager
-  #services.displayManager.cosmic-greeter.enable = true;
+  services.displayManager.cosmic-greeter.enable = true;
 
   # Enable the COSMIC desktop environment
-  #services.desktopManager.cosmic.enable = true;
+  services.desktopManager.cosmic.enable = true;
 
-  #services.system76-scheduler.enable = true;
+  services.system76-scheduler.enable = true;
   # affects clipboard behaviour
   #environment.sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;
   # Configure keymap in X11i
@@ -149,7 +149,7 @@
     #gnomeExtensions.paperwm
     nixd
     nixfmt
-    #trayscale
+    trayscale
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
   ];
