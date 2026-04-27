@@ -142,6 +142,7 @@
       "widget.gtk.libadwaita-colors.enabled" = false;
       #"browser.theme.native-theme" = false;
     };
+    configPath = ".mozilla/firefox";
   };
   programs.git = {
     enable = true;
