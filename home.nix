@@ -31,6 +31,7 @@
     hunspellDicts.th_TH
     hunspellDicts.uk_UA
     inkscape-with-extensions
+    #    kdePackages.kdenlive
     languagetool
     lazygit
     libreoffice-fresh
@@ -54,6 +55,15 @@
     #    zellij
     wineWow64Packages.staging
   ];
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-backgroundremoval
+      obs-pipewire-audio-capture
+    ];
+  };
+
   programs.yazi = {
     enable = true;
     # flavors = {

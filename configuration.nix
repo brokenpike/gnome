@@ -56,7 +56,8 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
+  # Enable flatpak
+  services.flatpak.enable = true;
   # Service fwupd
   services.fwupd.enable = true;
   # command to enable fingerprint reader
