@@ -55,14 +55,16 @@
     #    zellij
     wineWow64Packages.staging
   ];
-  programs.obs-studio = {
-    enable = true;
-    plugins = with pkgs.obs-studio-plugins; [
-      wlrobs
-      obs-backgroundremoval
-      obs-pipewire-audio-capture
-    ];
-  };
+  # programs.obs-studio = {
+  #   enable = true;
+  #   # Optional: Enable virtual camera support
+  #   enableVirtualCamera = true;
+  #   plugins = with pkgs.obs-studio-plugins; [
+  #     wlrobs
+  #     obs-backgroundremoval
+  #     obs-pipewire-audio-capture
+  #   ];
+  # };
 
   programs.yazi = {
     enable = true;

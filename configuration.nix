@@ -139,6 +139,18 @@
   #   # disable libadwaita theming for Firefox
   #   "widget.gtk.libadwaita-colors.enabled" = false;
   # };
+  security.polkit.enable = true;
+  programs.obs-studio = {
+    enable = true;
+    # Optional: Enable virtual camera support
+    enableVirtualCamera = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-backgroundremoval
+      obs-pipewire-audio-capture
+    ];
+  };
+
   programs.fish.enable = true;
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
