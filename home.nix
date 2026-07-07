@@ -22,6 +22,7 @@
     direnv
     evince
     fish
+    file-roller
     #gimp
     git-credential-manager
     grc
